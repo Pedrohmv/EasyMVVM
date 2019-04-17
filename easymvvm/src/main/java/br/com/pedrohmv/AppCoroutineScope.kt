@@ -27,4 +27,4 @@ class AppCoroutineScope : CoroutineScope {
 
 }
 
-typealias ErrorFunction = (Throwable) -> Unit
+typealias ErrorFunction = suspend (Throwable) -> Unit
