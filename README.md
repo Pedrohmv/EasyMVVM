@@ -1,6 +1,17 @@
 # EasyMVVM
 
+```groovy
+    allprojects {
+	    repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
 
+    dependencies {
+	    implementation 'com.github.Pedrohmv:EasyMVVM:0.0.3-alpha'
+	}
+```
 
 ```kotlin
 class ProfileFragment : Fragment() {
