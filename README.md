@@ -5,20 +5,20 @@
 ```kotlin
 class ProfileFragment : Fragment() {
 
-	private val viewModel: ProfileViewModel //inject or create instance
+    private val viewModel: ProfileViewModel //inject or create instance
 	
-	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		
-		easyObserve(viewModel.userInfoEvent ) { event ->
-			when (event) {
-				LoadingEvent -> showLoadingUI()
-				is ErrorEvent -> showError(event.error)
-				is SuccessEvent -> showUserProfileData(event.value)
-			}
+	    easyObserve(viewModel.userInfoEvent ) { event ->
+		when (event) {
+		    LoadingEvent -> showLoadingUI()
+		    is ErrorEvent -> showError(event.error)
+		    is SuccessEvent -> showUserProfileData(event.value)
 		}
+	    }
         
-        	viewModel.loadUserInfo(currentUserId)
-	}
+            viewModel.loadUserInfo(currentUserId)
+    }
 }
 ```
 
@@ -28,16 +28,16 @@ class ProfileViewModel(
 	appCoroutineScope: AppCoroutineScope
 ) : EasyViewModel(appCoroutineScope) {
 
-	private val userInfoEvent = MutableLiveData<Event>()
+    private val userInfoEvent = MutableLiveData<Event>()
 	
-	fun loadUserInfo(userId: Int){
-		launchOnIO({
-			userInfoEvent.updateValue(LoadingEvent)
-			val userInfo = userRepository.getUserInfo(userId)
-			userInfoEvent.updateValue(SuccesEvent(userInfo))
-		},{ error ->
-			userInfoEvent.updateValue(ErrorEvent(error))
-		})
-	}
+    fun loadUserInfo(userId: Int){
+	launchOnIO({
+	    userInfoEvent.updateValue(LoadingEvent)
+	    val userInfo = userRepository.getUserInfo(userId)
+	    userInfoEvent.updateValue(SuccesEvent(userInfo))
+	},{ error ->
+	    userInfoEvent.updateValue(ErrorEvent(error))
+	})
+    }
 }
 ```
