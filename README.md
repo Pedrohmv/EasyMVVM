@@ -17,7 +17,7 @@ class ProfileFragment : Fragment() {
 			}
 		}
         
-        viewModel.loadUserInfo(currentUserId)
+        	viewModel.loadUserInfo(currentUserId)
 	}
 }
 ```
