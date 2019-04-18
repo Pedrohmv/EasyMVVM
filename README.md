@@ -1,16 +1,18 @@
 # EasyMVVM
 
-```groovy
+```gradle
     allprojects {
-	    repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+        repositories {
+	    ...
+	    maven { url 'https://jitpack.io' }
 	}
+    }
+```
 
+```gradle
     dependencies {
-	    implementation 'com.github.Pedrohmv:EasyMVVM:0.0.3-alpha'
-	}
+        implementation 'com.github.Pedrohmv:EasyMVVM:0.0.3-alpha'
+    }
 ```
 
 ```kotlin
