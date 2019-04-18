@@ -9,15 +9,15 @@ class ProfileFragment : Fragment() {
 	
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		
-	    easyObserve(viewModel.userInfoEvent ) { event ->
-		when (event) {
-		    LoadingEvent -> showLoadingUI()
-		    is ErrorEvent -> showError(event.error)
-		    is SuccessEvent -> showUserProfileData(event.value)
-		}
+        easyObserve(viewModel.userInfoEvent ) { event ->
+	    when (event) {
+                LoadingEvent -> showLoadingUI()
+		is ErrorEvent -> showError(event.error)
+		is SuccessEvent -> showUserProfileData(event.value)
 	    }
+	}
         
-            viewModel.loadUserInfo(currentUserId)
+        viewModel.loadUserInfo(currentUserId)
     }
 }
 ```
