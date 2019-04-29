@@ -41,7 +41,7 @@ class ProfileViewModel(
 	appCoroutineScope: AppCoroutineScope
 ) : EasyViewModel(appCoroutineScope) {
 
-    private val userInfoEvent = MutableLiveData<Event>()
+    val userInfoEvent = MutableLiveData<Event>()
 	
     fun loadUserInfo(userId: Int){
 	launchOnIO({
