@@ -6,7 +6,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-class AppCoroutineScope : CoroutineScope {
+open class AppCoroutineScope : CoroutineScope {
 
     val job = Job()
     override val coroutineContext = job + Dispatchers.Main
