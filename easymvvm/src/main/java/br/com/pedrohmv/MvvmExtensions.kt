@@ -5,9 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlin.coroutines.CoroutineContext
 
-suspend fun <T> MutableLiveData<T>.updateValue(value: T) {
-    withContext(Dispatchers.Main) {
+suspend fun <T> MutableLiveData<T>.updateValue(value: T, coroutineContext: CoroutineContext? = null) {
+    withContext(coroutineContext ?: Dispatchers.Main) {
         this@updateValue.value = value
     }
 }

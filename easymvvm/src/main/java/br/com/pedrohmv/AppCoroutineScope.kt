@@ -1,15 +1,12 @@
 package br.com.pedrohmv
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-open class AppCoroutineScope : CoroutineScope {
+open class AppCoroutineScope(val coroutineDispatcher: CoroutineDispatcher) : CoroutineScope {
 
     val job = Job()
-    override val coroutineContext = job + Dispatchers.Main
+    override val coroutineContext = job + coroutineDispatcher
 
     fun launch(
         coroutineCtx: CoroutineContext = coroutineContext,

@@ -1,10 +1,10 @@
 package br.com.pedrohmv
 
-import kotlinx.coroutines.Dispatchers
-import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.CoroutineDispatcher
 
-class TestCoroutineScope : AppCoroutineScope() {
+class TestCoroutineScope(coroutineDispatcher: CoroutineDispatcher) :
+    AppCoroutineScope(coroutineDispatcher) {
 
-    override val coroutineContext = job + Dispatchers.Unconfined
+    override val coroutineContext = job + coroutineDispatcher
 
 }
